@@ -1,0 +1,15 @@
+.fade-appear{
+    opacity: 0;
+}
+.fade-appear-active{
+    opacity: 1;
+    transition: opacity 1000ms ease-out;
+    transition-delay: 1500ms;
+}
+
+.centered {
+    position: fixed;
+    top: 35%;
+    left: 23%;
+    width: 50%;
+}

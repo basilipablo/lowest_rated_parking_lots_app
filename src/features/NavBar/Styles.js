@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
         position: "absolute;right:0;top:0",
         marginTop: theme.spacing(3),
-        marginRight: theme.spacing(20),
+        marginRight: theme.spacing(35),
         [theme.breakpoints.down('sm')]: {
             margin: theme.spacing(1),
         },
