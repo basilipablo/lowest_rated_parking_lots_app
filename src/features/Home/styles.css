@@ -1,11 +1,22 @@
-.fade-appear{
+.fade-enter{
     opacity: 0;
 }
-.fade-appear-active{
+.fade-enter-active{
     opacity: 1;
     transition: opacity 1000ms ease-out;
-    transition-delay: 1500ms;
+    transition-delay: 500ms;
 }
+
+.fade-leave {
+    opacity: 0;
+}
+
+.fade-leave-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-out;
+    transition-delay: 1000ms;
+}
+
 
 .centered {
     position: fixed;
