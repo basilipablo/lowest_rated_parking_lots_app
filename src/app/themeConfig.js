@@ -10,6 +10,12 @@ const theme = createTheme({
         },
         secondary: {
             main: '#9BCCD7',
+        },
+        common: {
+            white: 'white',
+        },
+        action: {
+            hover: '#E5E5E5',
         }
     }
 })
