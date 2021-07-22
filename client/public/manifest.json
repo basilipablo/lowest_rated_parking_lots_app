@@ -1,0 +1,15 @@
+{
+  "short_name": "Basili's App",
+  "name": "Basili's Find Parking App",
+  "icons": [
+    {
+      "src": "logo485.png",
+      "type": "image/png",
+      "sizes": "485x476"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
