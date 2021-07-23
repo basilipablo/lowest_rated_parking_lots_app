@@ -1,9 +1,15 @@
 import axios from 'axios';
 
-export function getParkings(location) {
+export function getParkings(location, offset) {
+    const params = {
+        location,
+        offset
+    }
+
     return (dispatch) => {
-            return axios.get("http://localhost:3001/yelp")
+            return axios.get("http://localhost:3001/business")
                 .then(res => console.log(res))
+                .catch(e => console.error(e))
     }
     /*
     const data = {

@@ -14,10 +14,11 @@ export default function ClientSearch() {
 
     const [showTable, setShowTable] = useState(false);
     const [inputText, setInputText] = useState('');
+    const [offset, setOffset] = useState(0);
 
     const handleSearch = () => {
         setShowTable(true);
-        dispatch(getParkings(inputText))
+        dispatch(getParkings(inputText, offset))
     }
 
     const handleChange = (e) => {
