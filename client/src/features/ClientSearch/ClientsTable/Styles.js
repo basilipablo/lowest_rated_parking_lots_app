@@ -5,7 +5,14 @@ import { TableCell, TableRow } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
     table: {
-        maxWidth: 700,
+        
+    },
+    tableContainer: {
+        position: 'absolute',
+        top: theme.spacing(25),
+        left: theme.spacing(30),
+        width: '60%',
+        borderRadius: theme.spacing(1),
     },
 }));
 
@@ -23,6 +30,9 @@ export const StyledTableRow = withStyles((theme) => ({
     root: {
         '&:nth-of-type(odd)': {
             backgroundColor: theme.palette.action.hover,
+        },
+        '&:nth-of-type(even)': {
+            backgroundColor: theme.palette.common.white,
         },
     },
 }))(TableRow);

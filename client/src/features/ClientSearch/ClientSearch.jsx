@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import useStyles from './Styles'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getParkings } from '../../app/actions';
 //Material UI imports
-import { TextField, Button, Fab } from '@material-ui/core';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { TextField, Button, Typography } from '@material-ui/core';
+import { Pagination } from '@material-ui/lab'
+
 //Components imports
 import ClientsTable from './ClientsTable/ClientsTable';
 
@@ -16,6 +17,8 @@ export default function ClientSearch() {
     const [inputText, setInputText] = useState('');
     const [offset, setOffset] = useState(0);
 
+    const { total } = useSelector((state) => ({ ...state }))
+
     const handleSearch = () => {
         setShowTable(true);
         dispatch(getParkings(inputText, offset))
@@ -25,20 +28,27 @@ export default function ClientSearch() {
         setInputText(e.target.value)
     }
 
+    const handlePaginationChange = (e, value) => {
+        setOffset(--value*6);
+        dispatch(getParkings(inputText, offset))
+    }
+
     return (
-        <div>
+        <div className={classes.searchDiv}>
             <TextField label="Search a City" variant="outlined" onChange={(e) => handleChange(e)}/>
             <Button variant="contained" color="secondary" className={classes.button} onClick={() => handleSearch()}>Search</Button>
-            <div></div>
-            <Fab color="secondary" variant="extended" className={classes.button}>
-                <LocationOnIcon />
-                Near Me
-            </Fab>
             {
-                showTable ?
+                showTable && total ?
                 < ClientsTable /> :
                 null
             }
+            {showTable && total ?
+                <Pagination count={Math.ceil(total / 6)} defaultPage={Math.ceil(total / 6)} variant="outlined" shape="rounded" showFirstButton showLastButton className={classes.pagination} onChange={handlePaginationChange}/>
+            : null    
+            }
+            {showTable && !total ?
+            <Typography>Sorry, we don't have any Parking Lots available in that city!</Typography>
+            : null}
         </div>
     );
 }

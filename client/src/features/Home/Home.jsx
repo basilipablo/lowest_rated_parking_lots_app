@@ -39,7 +39,7 @@ export default function Home() {
                     null
                     }
                     {bringSearch ? 
-                    <div className="centered">
+                    <div>
                         <ClientSearch />
                     </div>
                     :

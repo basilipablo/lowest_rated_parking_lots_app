@@ -6,10 +6,17 @@ export function getParkings(location, offset) {
         offset
     }
 
-    return (dispatch) => {
-            return axios.get("http://localhost:3001/business")
-                .then(res => console.log(res))
-                .catch(e => console.error(e))
+    return async (dispatch) => {
+        try {
+            const response = await axios.get("http://localhost:3001/business", {params: params})
+            //console.log(response);
+            dispatch({
+                type: 'SET_BUSINESSES',
+                payload: response.data
+            });
+        } catch (error) {
+            console.error(error)
+        }
     }
     /*
     const data = {
